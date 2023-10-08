@@ -55,6 +55,11 @@ func TestAreSlicesEqualWithoutOrder(t *testing.T) {
 			inputs:   [2][]int{{1, 3, 2}, {1, 2, 3}},
 			expected: true,
 		},
+		{
+			name:     "unequal arrays because of length",
+			inputs:   [2][]int{{1, 2, 3}, {1, 2}},
+			expected: false,
+		},
 	}
 
 	for _, tt := range tests {
