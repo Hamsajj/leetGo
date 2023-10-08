@@ -38,9 +38,21 @@ func TestLongestConsecutive(t *testing.T) {
 			nums:     []int{1, 2, 0, 1},
 			expected: 3,
 		},
+		{
+			name:     "testCase 6",
+			nums:     []int{9, 1, -3, 2, 4, 8, 3, -1, 6, -2, -4, 7},
+			expected: 4,
+		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
+		t.Run("longestConsecutiveSet_"+tt.name, func(t *testing.T) {
+			got := longestConsecutiveSet(tt.nums)
+			if got != tt.expected {
+				t.Errorf("expected %d, but got %d", tt.expected, got)
+			}
+		})
+
+		t.Run("longestConsecutive_"+tt.name, func(t *testing.T) {
 			got := longestConsecutive(tt.nums)
 			if got != tt.expected {
 				t.Errorf("expected %d, but got %d", tt.expected, got)

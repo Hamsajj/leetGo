@@ -32,3 +32,37 @@ func longestConsecutive(nums []int) int {
 	}
 	return maxLCS
 }
+
+func longestConsecutiveSet(nums []int) int {
+	if len(nums) < 2 {
+		return len(nums)
+	}
+	hashSet := make(map[int]struct{})
+	for _, num := range nums {
+		hashSet[num] = struct{}{}
+	}
+
+	currentLCS := 1
+	maxLCS := 1
+	for num, _ := range hashSet {
+		if _, ok := hashSet[num-1]; ok {
+			continue
+		}
+		nextExists := true
+		for i := 1; nextExists; i++ {
+			if _, ok := hashSet[num+i]; ok {
+				currentLCS += 1
+			} else {
+				nextExists = false
+				if currentLCS > maxLCS {
+					maxLCS = currentLCS
+				}
+				currentLCS = 1
+			}
+		}
+	}
+	if currentLCS > maxLCS {
+		maxLCS = currentLCS
+	}
+	return maxLCS
+}
