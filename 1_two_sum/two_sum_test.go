@@ -1,7 +1,7 @@
 package two_sum
 
 import (
-	"slices"
+	"github.com/Hamsajj/leetGo/utils"
 	"testing"
 )
 
@@ -35,24 +35,9 @@ func TestTwoSum(t *testing.T) {
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
 			res := twoSum(tt.nums, tt.target)
-			if !testEqual(res, tt.expected) {
+			if !utils.AreSlicesEqualWithoutOrder(res, tt.expected) {
 				t.Errorf("expected %v, but recieved %v", tt.expected, res)
 			}
 		})
 	}
-}
-
-// testEqual test if two []int are equal, ignoring the order
-func testEqual(a, b []int) bool {
-	if len(a) != len(b) {
-		return false
-	}
-	slices.Sort(a)
-	slices.Sort(b)
-	for i := range a {
-		if a[i] != b[i] {
-			return false
-		}
-	}
-	return true
 }
