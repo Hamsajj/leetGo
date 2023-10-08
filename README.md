@@ -1,5 +1,5 @@
 ### LeetGo
-![Coverage](https://img.shields.io/badge/Coverage-96.6%25-brightgreen)
+![Coverage](https://img.shields.io/badge/Coverage-96.9%25-brightgreen)
 
 
 This repository includes my solutions and practices for LeetCode problems.
