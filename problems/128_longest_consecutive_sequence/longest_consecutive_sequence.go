@@ -14,10 +14,11 @@ func longestConsecutive(nums []int) int {
 	maxLCS := currentLCS
 	prevNum := nums[0]
 	for i := 1; i < len(nums); i++ {
+		if nums[i] == prevNum {
+			continue
+		}
 		if nums[i] == prevNum+1 {
 			currentLCS++
-		} else if nums[i] == prevNum {
-			continue
 		} else {
 			if currentLCS > maxLCS {
 				maxLCS = currentLCS
