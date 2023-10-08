@@ -1,7 +1,7 @@
+// Package contains_duplicates
+// difficulty: easy
+// link: https://leetcode.com/problems/contains-duplicate/
 package contains_duplicates
-
-// easy question
-// https://leetcode.com/problems/contains-duplicate/
 
 func containsDuplicate(nums []int) bool {
 	numExists := make(map[int]struct{})

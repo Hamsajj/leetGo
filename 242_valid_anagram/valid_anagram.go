@@ -1,7 +1,7 @@
+// Package valid_anagram
+// difficulty: easy
+// link: https://leetcode.com/problems/valid-anagram/
 package valid_anagram
-
-// easy question
-// https://leetcode.com/problems/valid-anagram/
 
 func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
