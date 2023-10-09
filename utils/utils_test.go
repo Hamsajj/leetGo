@@ -70,3 +70,40 @@ func TestAreSlicesEqualWithoutOrder(t *testing.T) {
 		})
 	}
 }
+
+func TestAreArrayOfArraysEqual(t *testing.T) {
+	tests := []struct {
+		name     string
+		inputs   [2][][]int
+		expected bool
+	}{
+		{
+			name:     "equal arrays",
+			inputs:   [2][][]int{{{1, 2}, {2, 3}}, {{1, 2}, {2, 3}}},
+			expected: true,
+		},
+		{
+			name:     "equal arrays despite order",
+			inputs:   [2][][]int{{{1, 2}, {2, 3}}, {{3, 2}, {1, 2}}},
+			expected: true,
+		},
+		{
+			name:     "unequal arrays because of length",
+			inputs:   [2][][]int{{{1, 2}, {2, 3}}, {{3}, {1, 2}}},
+			expected: false,
+		},
+		{
+			name:     "unequal arrays but one include other",
+			inputs:   [2][][]int{{{1, 2}, {1, 2}}, {{1, 2}, {3, 2}}},
+			expected: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if AreArrayOfArraysEqual(tt.inputs[0], tt.inputs[1]) != tt.expected {
+				t.Errorf("expected the result to be %t", tt.expected)
+			}
+		})
+	}
+}

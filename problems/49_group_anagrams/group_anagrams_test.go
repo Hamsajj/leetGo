@@ -41,28 +41,9 @@ func TestGroupAnagrams(t *testing.T) {
 	for _, tt := range testCases {
 		t.Run(tt.name, func(t *testing.T) {
 			result := groupAnagrams(tt.strs)
-			if !testArrayOfArraysEqual(result, tt.expected) {
+			if !utils.AreArrayOfArraysEqual(result, tt.expected) {
 				t.Errorf("expected %v, but recieved %v", tt.expected, result)
 			}
 		})
 	}
-}
-
-func testArrayOfArraysEqual(strs1, strs2 [][]string) bool {
-	if len(strs1) != len(strs2) {
-		return false
-	}
-	for _, str1 := range strs1 {
-		foundEqual := false
-		for _, str2 := range strs2 {
-			if utils.AreSlicesEqualWithoutOrder(str1, str2) {
-				foundEqual = true
-				break
-			}
-		}
-		if !foundEqual {
-			return false
-		}
-	}
-	return true
 }
