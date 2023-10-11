@@ -1,3 +1,6 @@
+// Package minimum_rotated_sorted_array
+// difficulty: medium
+// link: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 package minimum_rotated_sorted_array
 
 func findMin(nums []int) int {
