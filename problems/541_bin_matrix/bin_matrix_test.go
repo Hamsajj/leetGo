@@ -25,7 +25,7 @@ func TestUpdateMatrix(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := updateMatrix(tt.mat)
+			got := updateMatrixBFS(tt.mat)
 			if !utils.AreArrayOfArraysEqual(got, tt.expected) {
 				t.Errorf("expected %v, but recieved %v", tt.expected, got)
 			}
